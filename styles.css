@@ -28,19 +28,30 @@ body {
     color: "white";
     padding: 14px 40px;
 }
-
+.more_info {
+    border: none;
+    background-color: #85C1E9;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family:'Raleway', sans-serif;
+    text-align: center; 
+    color: "white";
+    padding: 14px 40px;
+}
+.less_info {
+    border: none;
+    background-color: #85C1E9;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family:'Raleway', sans-serif;
+    text-align: center; 
+    color: "white";
+    padding: 14px 40px;
+}
 #descrip {
     text-align: left;
 }
 
-#responseArea {
-
-}
-
-.shadow_class {
-    border: 20px solid white;
-    box-shadow: -2px -2px 4px 2px rgba(0,0,0,0.25);
-}
 
 img{
     height: 30%;
@@ -49,7 +60,12 @@ img{
     box-shadow: -2px -2px 4px 2px rgba(0,0,0,0.25);
 }
 
-#tags{
+.tag_class{
+    
+    color: #85C1E9;
+}
+
+#tags {
     text-align: left;
     font-size: 80%;
 }

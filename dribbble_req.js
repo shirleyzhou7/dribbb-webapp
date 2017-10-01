@@ -21,6 +21,7 @@ function api_request() {
         });
 }
 
+//html method 
 function parseData(obj, imgnum){
     var displayTags;
     for (var i =0; i < obj.tags.length; i++) {                
@@ -31,7 +32,7 @@ function parseData(obj, imgnum){
     var desc = obj.description;
     console.log(obj);
     $("#descrip").html(desc);
-    $("#tags").html(displayTags);
+    $(".tag_class").html(displayTags);
     $("#img"+imgnum).html(image);
 }
 
@@ -55,15 +56,47 @@ $(document).ready(function(){
     // API Call and Image Initiallization
     api_request();
 
-$('#learn_more').hover(function(){
-    $(this).css("color", "white");
-    $(this).css("background-color", "")}, 
-    function(){ 
-    $(this).css("color", "black");
-    $(this).css("background-color", "#85C1E9")});
-$('img').hover(function(){
-    $(this).css("border", "0");
-})
+    //hide method
+    $('.less_info').hide();
+    $('#descrip').hide();
+    $('#tags').hide();
+
+    //hover and css methods
+    $('#learn_more').hover(function(){
+        $(this).css("color", "white");
+        $(this).css("background-color", "")}, 
+        function(){ 
+        $(this).css("color", "black");
+        $(this).css("background-color", "#85C1E9")});
+    
+    //mouseenter
+    $('#welcome').mouseenter(function(){
+        $(this).css("color", "#EC7063");
+    });
+
+    $('#welcome').mouseleave(function(){
+        $(this).css("color", "black");
+    })
+
+    //click, show
+    $('.more_info').click(function(){
+        $('.more_info').hide();
+        $('.less_info').show();
+        $('#descrip').show();
+        $('#tags').show();      
+    });
+    $('.less_info').click(function(){
+        $('.more_info').show();
+        $('.less_info').hide();
+        $('#descrip').hide();
+        $('#tags').hide(); 
+    })
+    //mouseover, toggleClass
+    $('.tag_class').mouseover(function(){
+        $(this).toggleClass('tag_class');     
+    });
+
+
 
     
 })
