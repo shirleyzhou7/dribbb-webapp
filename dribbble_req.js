@@ -4,55 +4,24 @@
 
 // API documentation found here: http://developer.dribbble.com/v1/
 
-$(document).ready(function(){
-    // API Call and Image Initiallization
-    // $('#local').click(api_request);
-    api_request();
-    local_request();
-});
-
-
 function api_request() {
     let access_token = '5f8acda96311be5321f29c1e9edb2223146d59c7a8072d0b4e9b7c7eddf7174c'
     $("#responseArea").html("");
-    $.getJSON('https://api.dribbble.com/v1/shots/3821382?access_token='+access_token, 
+    $.getJSON('https://api.dribbble.com/v1/shots/3840395?access_token='+access_token, 
         function(data,status){
-            if (status === "success") parseData(data);
+            if (status === "success") parseData(data,1);
+        });
+    $.getJSON('https://api.dribbble.com/v1/shots/3709382?access_token='+access_token, 
+        function(data,status){
+            if (status === "success") parseData(data,2);
+        });
+    $.getJSON('https://api.dribbble.com/v1/shots/3844491?access_token='+access_token, 
+        function(data,status){
+            if (status === "success") parseData(data,3);
         });
 }
 
-function local_request() {
-    $("#responseArea").html("");
-    $.getJSON('data.json', function(data, status) {
-    if (status === "success") processLocal(data);
-  })
-}
-
-// function doLoadLocal() {
-//   $("#responseArea").html("");
-//   $.getJSON("data.json", function(data, status) {
-//     if (status === "success") processResponse(data);
-//   })
-// }
-
-// function processResponse(responseObject) {
-//   var displayText = "There are " + responseObject.employees.length + " employees:<ol>";
-//   for (var i = 0; i < responseObject.employees.length; i++) {
-//     var employee = responseObject.employees[i];
-//     displayText += "<li>" + employee.firstName + " " + employee.lastName + "<\/li>";
-//   }
-//   displayText += "<\/ol>";
-//   $("#responseArea").html(displayText);
-// }
-
-function processLocal(responseobj){
-    // var responseObject = JSON.parse(responseJSON);
-    var displayText = responseObject.about;
-    displayText += "<\/ol>";   
-    document.getElementById("responseArea").innerHTML = displayText;
-}
-
-function parseData(obj){
+function parseData(obj, imgnum){
     var displayTags;
     for (var i =0; i < obj.tags.length; i++) {                
         var tag = obj.tags[i];
@@ -63,8 +32,45 @@ function parseData(obj){
     console.log(obj);
     $("#descrip").html(desc);
     $("#tags").html(displayTags);
-    $("#image").html(image);
+    $("#img"+imgnum).html(image);
 }
+
+function local_request() {
+    $("#responseArea").html("");
+    $.getJSON('data.json', function(data, status) {
+        if (status === "success") processLocal(data);
+        else { responseArea.innerHTML="Error code " + status;}
+    })
+}
+
+function processLocal(responseobj){
+    var displayText = responseobj.about;
+    displayText += "<\/ol>";   
+    document.getElementById("responseArea").innerHTML = displayText;
+}
+
+//rest of jquery methods down here
+
+$(document).ready(function(){
+    // API Call and Image Initiallization
+    api_request();
+
+$('#learn_more').hover(function(){
+    $(this).css("color", "white");
+    $(this).css("background-color", "")}, 
+    function(){ 
+    $(this).css("color", "black");
+    $(this).css("background-color", "#85C1E9")});
+$('img').hover(function(){
+    $(this).css("border", "0");
+})
+
+    
+})
+
+
+
+
 
 
 
