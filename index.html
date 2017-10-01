@@ -1,22 +1,31 @@
 <html>
-<header>
+<head>
     <!-- I am using Dribbble API which allows CORS. 
     Dribbble is a platform where designers can share their original work
-    displayed as "shots" which are 300x400 snapshots of a design  -->
+    displayed as "shots" which are 300x400 snapshots of a design
+    API documentation found here: http://developer.dribbble.com/v1/ -->
 
-    <!-- API documentation found here: http://developer.dribbble.com/v1/ -->
-    
+    <!-- fonts used from google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway" rel="stylesheet">
+    <!-- css stylesheet -->
+    <link rel="stylesheet" type="text/css" href ="styles.css">
+    <!-- jquery link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- js file link -->
     <script src="dribbble_req.js"></script>
-</header>
+</head>
 <body>
-<input  id="local" type = "BUTTON" 
-        value = "Get api stuff">
-<div id="image"></div>
-<div id="tags"></div>
-<div id="descrip"></div>
+    <h1 id="welcome"> Here are some of my favorite shots from Dribbble. </h1>
+    
+    <input id="local" type = "BUTTON" value = "Get data.json">
+    <div id="responseArea"> </div>
+    <div id="image"></div>
+    <div id="tags"></div>
+    <div id="descrip"></div>
 
-
+    <footer>
+        &copy; Shirley Zhou 2017
+    </footer>
 </body>
 
 </html>

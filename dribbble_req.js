@@ -6,7 +6,9 @@
 
 $(document).ready(function(){
     // API Call and Image Initiallization
-    $('#local').click(api_request);
+    // $('#local').click(api_request);
+    api_request();
+    local_request();
 });
 
 
@@ -19,7 +21,36 @@ function api_request() {
         });
 }
 
+function local_request() {
+    $("#responseArea").html("");
+    $.getJSON('data.json', function(data, status) {
+    if (status === "success") processLocal(data);
+  })
+}
 
+// function doLoadLocal() {
+//   $("#responseArea").html("");
+//   $.getJSON("data.json", function(data, status) {
+//     if (status === "success") processResponse(data);
+//   })
+// }
+
+// function processResponse(responseObject) {
+//   var displayText = "There are " + responseObject.employees.length + " employees:<ol>";
+//   for (var i = 0; i < responseObject.employees.length; i++) {
+//     var employee = responseObject.employees[i];
+//     displayText += "<li>" + employee.firstName + " " + employee.lastName + "<\/li>";
+//   }
+//   displayText += "<\/ol>";
+//   $("#responseArea").html(displayText);
+// }
+
+function processLocal(responseobj){
+    // var responseObject = JSON.parse(responseJSON);
+    var displayText = responseObject.about;
+    displayText += "<\/ol>";   
+    document.getElementById("responseArea").innerHTML = displayText;
+}
 
 function parseData(obj){
     var displayTags;

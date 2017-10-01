@@ -1,0 +1,29 @@
+
+
+body {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 100%;
+    line-height: 1.7em; 
+    font-weight: 300;
+}
+
+
+#welcome {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+footer {
+    clear: both; 
+    margin: 0;
+    padding: .5em;
+    color: #333333;
+    /*font-variant: small-caps; */
+    font-family: 'Playfair Display', serif;
+    font-size: .813em;
+    text-align: center;
+}
+
