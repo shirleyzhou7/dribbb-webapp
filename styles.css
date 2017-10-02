@@ -29,6 +29,11 @@ body {
     color: "white";
     padding: 14px 40px;
 }
+#about {
+    padding-left: 17%;
+    padding-right: 17%;
+    text-align: left;
+}
 .more_info {
     border: none;
     background-color: #85C1E9;
