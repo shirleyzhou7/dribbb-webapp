@@ -61,7 +61,7 @@ $(document).ready(function(){
     $('#descrip').hide();
     $('#tags').hide();
 
-    //hover and css methods
+    //hover and css 
     $('#learn_more').hover(function(){
         $(this).css("color", "white");
         $(this).css("background-color", "")}, 
@@ -69,6 +69,11 @@ $(document).ready(function(){
         $(this).css("color", "black");
         $(this).css("background-color", "#85C1E9")});
     
+    //animate
+    $('#whee').mouseover(function(){
+        $(this).animate({marginTop: "80px"}, 1500)
+            .animate({ marginTop: "20px" }, 1000 );
+    })
     //mouseenter
     $('#welcome').mouseenter(function(){
         $(this).css("color", "#EC7063");
