@@ -4,6 +4,7 @@
 
 // API documentation found here: http://developer.dribbble.com/v1/
 
+//requests images and data of different "shots" from API
 function api_request() {
     let access_token = '5f8acda96311be5321f29c1e9edb2223146d59c7a8072d0b4e9b7c7eddf7174c'
     $("#responseArea").html("");
@@ -21,7 +22,7 @@ function api_request() {
         });
 }
 
-//html method 
+//grabs only the image, description and tags of each shot
 function parseData(obj, imgnum){
     var displayTags;
     for (var i =0; i < obj.tags.length; i++) {                
@@ -36,6 +37,7 @@ function parseData(obj, imgnum){
     $("#img"+imgnum).html(image);
 }
 
+//grabs data from data.json (local)
 function local_request() {
     $("#responseArea").html("");
     $.getJSON('data.json', function(data, status) {
@@ -51,22 +53,23 @@ function processLocal(responseobj){
 }
 
 //rest of jquery methods down here
-
 $(document).ready(function(){
     // API Call and Image Initiallization
     api_request();
 
-    //hide 
+    //hide methods
+    //keeps things hidden
     $('.less_info').hide();
     $('#descrip').hide();
     $('#tags').hide();
 
-    //keyup, text
+    //keyup, text methods
+    //text input for your name
     $("#name_input").keyup(function(){
         $('#name').text($(this).val());
     });
 
-    //hover and css 
+    //hover and css methods
     $('#learn_more').hover(function(){
         $(this).css("color", "white");
         $(this).css("background-color", "")}, 
@@ -74,7 +77,8 @@ $(document).ready(function(){
         $(this).css("color", "black");
         $(this).css("background-color", "#85C1E9")});
     
-    //animate
+    //animate method
+    //makes Dribbble bounce
     $('#whee').mouseover(function(){
         $(this).animate({marginTop: "80px"}, 1500)
             .animate({ marginTop: "20px" }, 1000 );
@@ -89,6 +93,7 @@ $(document).ready(function(){
     })
 
     //click, show
+    //toggle show/hide excess info
     $('.more_info').click(function(){
         $('.more_info').hide();
         $('.less_info').show();
@@ -105,9 +110,6 @@ $(document).ready(function(){
     $('.tag_class').mouseover(function(){
         $(this).toggleClass('tag_class');     
     });
-
-
-
     
 })
 
