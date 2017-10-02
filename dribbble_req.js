@@ -56,10 +56,15 @@ $(document).ready(function(){
     // API Call and Image Initiallization
     api_request();
 
-    //hide method
+    //hide 
     $('.less_info').hide();
     $('#descrip').hide();
     $('#tags').hide();
+
+    //keyup, text
+    $("#name_input").keyup(function(){
+        $('#name').text($(this).val());
+    });
 
     //hover and css 
     $('#learn_more').hover(function(){
